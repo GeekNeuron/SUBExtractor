@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Subtitle Extractor - Advanced</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="coi-serviceworker.js"></script>
+    <script src="https://unpkg.com/@ffmpeg/ffmpeg@0.11.0/dist/ffmpeg.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <header>
+                <h1>Professional Subtitle Extractor</h1>
+                <p>Extract multiple tracks and select the output format.</p>
+            </header>
+
+            <main>
+                <div class="upload-area">
+                    <input type="file" id="video-input" accept="video/mp4, video/x-matroska, video/quicktime, .mkv">
+                    <label for="video-input" class="file-label">
+                        <span>Select Video File</span>
+                    </label>
+                </div>
+
+                <div class="status-box">
+                    <p id="status-text">Select a video file (MKV, MP4) to begin.</p>
+                    <progress id="progress-bar" value="0" max="100" class="hidden"></progress>
+                </div>
+
+                <div id="tracks-container" class="tracks-container hidden">
+                    <h3>Found Subtitle Tracks:</h3>
+                    <div id="tracks-list">
+                        </div>
+                    
+                    <div class="output-options">
+                        <label for="output-format">Convert to Format:</label>
+                        <select id="output-format">
+                            <option value="original">Original Format</option>
+                            <option value="srt">SRT</option>
+                            <option value="vtt">VTT</option>
+                        </select>
+                    </div>
+
+                    <button id="extract-btn" disabled>Extract Selected</button>
+
+                    <div id="preview-box" class="preview-box hidden">
+                        <h4>Preview:</h4>
+                        <pre id="preview-content"></pre>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
